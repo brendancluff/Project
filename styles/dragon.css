@@ -1,8 +1,7 @@
-/* ===== Global Styles ===== */
 body { 
   display: flex;
   flex-direction: column;
-  min-height: 100vh;  /* full viewport height */
+  min-height: 100vh; 
   margin: 0;
   font-family: 'Merriweather', serif;
   background-color: #F5F0D7;
@@ -13,7 +12,6 @@ h1, h2, h3, nav, .logo {
   font-family: 'Cinzel', serif;
 }
 
-/* ===== Header & Navigation ===== */
 header {
   background-color: #5B3E1B;
   color: #F5F0D7;
@@ -21,7 +19,7 @@ header {
   justify-content: space-between;
   align-items: center;
   padding: 1rem 2rem;
-  flex-wrap: wrap; /* Allows nav to stack on small screens */
+  flex-wrap: wrap; 
 }
 
 header .logo {
@@ -34,7 +32,7 @@ nav ul {
   margin: 0;
   padding: 0;
   display: flex;
-  flex-wrap: wrap; /* Wrap for mobile */
+  flex-wrap: wrap;
 }
 
 nav ul li {
@@ -52,7 +50,6 @@ nav ul li a.active {
   text-decoration: underline;
 }
 
-/* ===== Hero Section ===== */
 .hero {
   position: relative;
   text-align: center;
@@ -74,9 +71,8 @@ nav ul li a.active {
 }
 
 
-/* ===== Main Content ===== */
 main {
-  flex-grow: 1;          /* make main fill available vertical space */
+  flex-grow: 1;          
   padding: 2rem;
 }
 
@@ -89,7 +85,6 @@ section h2 {
   padding-left: 1rem;
 }
 
-/* ===== Footer ===== */
 footer {
   background-color: #5B3E1B;
   color: #F5F0D7;
@@ -98,9 +93,6 @@ footer {
   font-size: 0.9rem;
 }
 
-/* ===== Responsive Breakpoints ===== */
-
-/* Mobile (portrait) - up to 480px */
 @media (max-width: 480px) {
   header {
     flex-direction: column;
@@ -128,7 +120,6 @@ footer {
   }
 }
 
-/* Tablet & small laptops (landscape) - 481px to 900px */
 @media (min-width: 481px) and (max-width: 900px) {
   .hero {
     padding: 4rem 1.5rem;
@@ -139,7 +130,6 @@ footer {
   }
 }
 
-/* Large screens - 901px and up */
 @media (min-width: 901px) {
   main {
     max-width: 1200px;
@@ -157,12 +147,12 @@ footer {
 
 .application-form-section {
   max-width: 480px;
-  margin: 2rem auto; /* center horizontally with vertical spacing */
-  background-color: #F5F0D7; /* parchment cream background */
-  border: 2px solid #5B3E1B; /* deep bronze border */
+  margin: 2rem auto;
+  background-color: #F5F0D7; 
+  border: 2px solid #5B3E1B; 
   border-radius: 8px;
   padding: 2rem;
-  box-shadow: 0 4px 8px rgba(91, 62, 27, 0.2); /* subtle bronze shadow */
+  box-shadow: 0 4px 8px rgba(91, 62, 27, 0.2);
 }
 
 .application-form-section h2 {
@@ -199,7 +189,7 @@ form input[type="text"]:focus,
 form input[type="number"]:focus,
 form select:focus,
 form textarea:focus {
-  border-color: #8b6f37; /* lighter bronze on focus */
+  border-color: #8b6f37; 
   outline: none;
 }
 

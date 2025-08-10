@@ -1,10 +1,8 @@
-// Update footer year and last modified date
 function updateFooterDate() {
   document.getElementById("year").textContent = new Date().getFullYear();
   document.getElementById("lastModified").textContent = document.lastModified;
 }
 
-// Validate application form inputs
 function validateApplicationForm() {
   const name = document.getElementById("name").value.trim();
   const age = parseInt(document.getElementById("age").value, 10);
@@ -17,7 +15,6 @@ function validateApplicationForm() {
   return { valid: true };
 }
 
-// Save application data to localStorage
 function saveApplicationData() {
   const formData = {
     name: document.getElementById("name").value.trim(),
@@ -27,7 +24,6 @@ function saveApplicationData() {
   localStorage.setItem("applicationData", JSON.stringify(formData));
 }
 
-// Load application data from localStorage
 function loadApplicationData() {
   const saved = localStorage.getItem("applicationData");
   if (!saved) return;
@@ -38,7 +34,6 @@ function loadApplicationData() {
   document.getElementById("dragonType").value = formData.dragonType || "";
 }
 
-// Populate dragons list dynamically (for training page)
 const dragons = [
   { name: "Fire Drake", element: "Fire", difficulty: "Intermediate" },
   { name: "Storm Wyvern", element: "Air", difficulty: "Advanced" },
@@ -54,7 +49,6 @@ function populateDragonList() {
   ).join("");
 }
 
-// Event listeners
 document.addEventListener("DOMContentLoaded", () => {
   updateFooterDate();
   loadApplicationData();
