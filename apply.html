@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Skyborn Academy - Apply</title>
+
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel&family=Merriweather&display=swap" rel="stylesheet" />
+
+  <link rel="stylesheet" href="styles/dragon.css" />
+
+  <script src="scripts/dragon.js" defer></script>
+</head>
+<body>
+  <header>
+    <div class="logo">Skyborn Academy</div>
+    <nav>
+      <ul>
+        <li><a href="siteplan.html">Home</a></li>
+        <li><a href="training.html">Training & Dragons</a></li>
+        <li><a href="apply.html" class="active">Apply</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <section class="hero">
+    <img src="images/app.webp" alt="Apply to Skyborn Academy" loading="lazy" class="hero-img" />
+    <div class="hero-text">
+      <h1>Apply to Skyborn Academy</h1>
+      <p>Take the first step toward becoming a legendary dragon rider.</p>
+    </div>
+  </section>
+
+  <main>
+    <section class="application-form-section">
+      <h2>Application Form</h2>
+      <form id="applicationForm" novalidate>
+        <label for="name">Full Name<span aria-hidden="true">*</span>:</label>
+        <input type="text" id="name" name="name" required placeholder="Your full name" />
+
+        <label for="age">Age<span aria-hidden="true">*</span>:</label>
+        <input type="number" id="age" name="age" required min="20" placeholder="You must be 20 or older" />
+
+        <label for="experience">Previous Riding Experience:</label>
+        <textarea id="experience" name="experience" rows="4" placeholder="Describe any dragon riding or related experience"></textarea>
+
+        <label for="dragonType">Preferred Dragon Type<span aria-hidden="true">*</span>:</label>
+        <select id="dragonType" name="dragonType" required>
+          <option value="" disabled selected>Select a dragon</option>
+          <option value="Fire Drake">Fire Drake</option>
+          <option value="Storm Wyvern">Storm Wyvern</option>
+          <option value="Frost Wyrm">Frost Wyrm</option>
+        </select>
+
+        <button type="submit">Submit Application</button>
+      </form>
+    </section>
+  </main>
+
+  <footer>
+    <p>&copy; <span id="year"></span> Skyborn Academy | Last updated: <span id="lastModified"></span></p>
+  </footer>
+</body>
+</html>

@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Skyborn Academy - Training & Dragons</title>
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel&family=Merriweather&display=swap" rel="stylesheet" />
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="styles/dragon.css" />
+
+  <!-- JavaScript -->
+  <script src="scripts/dragon.js" defer></script>
+</head>
+<body>
+  <!-- Header / Navigation -->
+  <header>
+    <div class="logo">Skyborn Academy</div>
+    <nav>
+      <ul>
+        <li><a href="siteplan.html">Home</a></li>
+        <li><a href="training.html" class="active">Training & Dragons</a></li>
+        <li><a href="apply.html">Apply</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <!-- Hero Section -->
+  <section class="hero">
+    <img src="images/rider.webp" alt="Dragon Rider Training" loading="lazy" class="hero-img" />
+    <div class="hero-text">
+      <h1>Training & Dragons</h1>
+      <p>Master your skills and meet the legendary dragons of Skyborn Academy.</p>
+    </div>
+  </section>
+
+  <!-- Main Content -->
+  <main>
+    <section class="training-overview">
+      <h2>Training Courses</h2>
+      <p>
+        At Skyborn Academy, riders embark on a journey from novice to master. Our courses cover aerial maneuvers,
+        dragon care, elemental magic, and battlefield tactics.
+      </p>
+      <ul>
+        <li><strong>Beginner:</strong> Dragon bonding and basic riding skills</li>
+        <li><strong>Intermediate:</strong> Flight formations and elemental magic basics</li>
+        <li><strong>Advanced:</strong> Combat strategies and advanced magic integration</li>
+      </ul>
+    </section>
+
+    <section class="dragons">
+      <h2>Meet the Dragons</h2>
+      <ul id="dragonList">
+        <!-- JavaScript will populate this list dynamically -->
+      </ul>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer>
+    <p>&copy; <span id="year"></span> Skyborn Academy | Last updated: <span id="lastModified"></span></p>
+  </footer>
+</body>
+</html>

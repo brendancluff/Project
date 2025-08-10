@@ -1,29 +1,77 @@
-document.addEventListener('DOMContentLoaded', () => {
-  const form = document.getElementById('applicationForm');
-  const confirmation = document.getElementById('confirmationMessage');
+// Update footer year and last modified date
+function updateFooterDate() {
+  document.getElementById("year").textContent = new Date().getFullYear();
+  document.getElementById("lastModified").textContent = document.lastModified;
+}
 
-  const applicants = JSON.parse(localStorage.getItem('applicants')) || [];
+// Validate application form inputs
+function validateApplicationForm() {
+  const name = document.getElementById("name").value.trim();
+  const age = parseInt(document.getElementById("age").value, 10);
+  const dragonSelect = document.getElementById("dragonType").value;
 
-  form.addEventListener('submit', event => {
-    event.preventDefault();
+  if (!name) return { valid: false, message: "Name is required." };
+  if (!age || age < 13) return { valid: false, message: "Age must be 13 or older." };
+  if (!dragonSelect) return { valid: false, message: "Please select a dragon type." };
 
-    const name = document.getElementById('name').value.trim();
-    const age = parseInt(document.getElementById('age').value);
-    const dragon = document.getElementById('dragon').value;
+  return { valid: true };
+}
 
-    if (age < 10) {
-      confirmation.innerHTML = `<p>Sorry ${name}, you must be at least 10 to apply.</p>`;
-      return;
-    }
+// Save application data to localStorage
+function saveApplicationData() {
+  const formData = {
+    name: document.getElementById("name").value.trim(),
+    age: document.getElementById("age").value,
+    dragonType: document.getElementById("dragonType").value
+  };
+  localStorage.setItem("applicationData", JSON.stringify(formData));
+}
 
-    const applicant = { name, age, dragon };
-    applicants.push(applicant);
-    localStorage.setItem('applicants', JSON.stringify(applicants));
+// Load application data from localStorage
+function loadApplicationData() {
+  const saved = localStorage.getItem("applicationData");
+  if (!saved) return;
+  const formData = JSON.parse(saved);
 
-    confirmation.innerHTML = `
-      <p>Thank you, ${name}! Your application for a ${dragon} dragon has been received.</p>
-    `;
+  document.getElementById("name").value = formData.name || "";
+  document.getElementById("age").value = formData.age || "";
+  document.getElementById("dragonType").value = formData.dragonType || "";
+}
 
-    form.reset();
-  });
+// Populate dragons list dynamically (for training page)
+const dragons = [
+  { name: "Fire Drake", element: "Fire", difficulty: "Intermediate" },
+  { name: "Storm Wyvern", element: "Air", difficulty: "Advanced" },
+  { name: "Frost Wyrm", element: "Ice", difficulty: "Beginner" }
+];
+
+function populateDragonList() {
+  const container = document.getElementById("dragonList");
+  if (!container) return;
+
+  container.innerHTML = dragons.map(dragon => 
+    `<li><strong>${dragon.name}</strong> — Element: ${dragon.element}, Difficulty: ${dragon.difficulty}</li>`
+  ).join("");
+}
+
+// Event listeners
+document.addEventListener("DOMContentLoaded", () => {
+  updateFooterDate();
+  loadApplicationData();
+  populateDragonList();
+
+  const form = document.getElementById("applicationForm");
+  if (form) {
+    form.addEventListener("submit", event => {
+      event.preventDefault();
+      const validation = validateApplicationForm();
+      if (!validation.valid) {
+        alert(`Error: ${validation.message}`);
+        return;
+      }
+      saveApplicationData();
+      alert(`Thank you, ${document.getElementById("name").value}, for applying to Skyborn Academy!`);
+      form.reset();
+    });
+  }
 });
